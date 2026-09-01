@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que é um LLM?</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00d2ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-3px); }
+        .card h2 {
+            color: #7b2ff7;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        .card p { line-height: 1.8; color: #ccc; }
+        .highlight {
+            color: #00d2ff;
+            font-weight: bold;
+        }
+        .tag {
+            display: inline-block;
+            background: rgba(123, 47, 247, 0.2);
+            border: 1px solid rgba(123, 47, 247, 0.4);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 4px;
+            color: #c9a5ff;
+        }
+        .exemplo {
+            background: rgba(0, 210, 255, 0.08);
+            border-left: 4px solid #00d2ff;
+            padding: 15px 20px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        .timeline {
+            list-style: none;
+            padding-left: 20px;
+            border-left: 2px solid rgba(123, 47, 247, 0.4);
+        }
+        .timeline li {
+            padding: 10px 0 10px 20px;
+            position: relative;
+        }
+        .timeline li::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #7b2ff7;
+            border-radius: 50%;
+            position: absolute;
+            left: -27px;
+            top: 14px;
+        }
+        .timeline .ano { color: #00d2ff; font-weight: bold; }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>O que é um LLM?</h1>
+        <p class="subtitle">Large Language Model — Modelo de Linguagem de Grande Escala</p>
+
+        <div class="card">
+            <h2>Definição</h2>
+            <p>
+                Um <span class="highlight">LLM (Large Language Model)</span> é um tipo de inteligência artificial treinada com
+                quantidades massivas de dados de texto para compreender, gerar e manipular linguagem humana.
+                Esses modelos usam arquiteturas de <span class="highlight">redes neurais profundas</span>,
+                especificamente a arquitetura <span class="highlight">Transformer</span>, para aprender padrões
+                estatísticos da linguagem.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Como funciona?</h2>
+            <p>
+                O LLM funciona através de três etapas principais:
+            </p>
+            <ul style="margin-top: 15px; padding-left: 20px; line-height: 2;">
+                <li><span class="highlight">Treinamento:</span> O modelo é alimentado com bilhões de palavras de livros, artigos, sites e outros textos.</li>
+                <li><span class="highlight">Aprendizado:</span> Ele aprende a prever a próxima palavra em uma sequência, desenvolvendo compreensão contextual.</li>
+                <li><span class="highlight">Geração:</span> Ao receber um prompt (entrada de texto), o modelo gera uma resposta palavra por palavra, com base nas probabilidades aprendidas.</li>
+            </ul>
+            <div class="exemplo">
+                "Quando você pergunta algo a um LLM, ele não 'pensa' como um humano — ele calcula a resposta mais provável
+                com base nos padrões que aprendeu durante o treinamento."
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Características Principais</h2>
+            <div>
+                <span class="tag">Transformer</span>
+                <span class="tag">Atenção (Attention)</span>
+                <span class="tag">Billhões de parâmetros</span>
+                <span class="tag">Aprendizado por transferência</span>
+                <span class="tag">Prompt Engineering</span>
+                <span class="tag">Fine-tuning</span>
+                <span class="tag">Geração de texto</span>
+                <span class="tag">Múltiplos idiomas</span>
+                <span class="tag">Contexto amplo</span>
+                <span class="tag">Zero-shot / Few-shot</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Exemplos de LLMs</h2>
+            <ul style="padding-left: 20px; line-height: 2.2;">
+                <li><span class="highlight">GPT-4</span> — OpenAI</li>
+                <li><span class="highlight">Claude</span> — Anthropic</li>
+                <li><span class="highlight">Gemini</span> — Google</li>
+                <li><span class="highlight">LLaMA</span> — Meta</li>
+                <li><span class="highlight">Mistral</span> — Mistral AI</li>
+                <li><span class="highlight">DeepSeek</span> — DeepSeek AI</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Casos de Uso</h2>
+            <ul style="padding-left: 20px; line-height: 2.2;">
+                <li>Assistentes virtuais e chatbots</li>
+                <li>Tradução automática de idiomas</li>
+                <li>Geração de código de programação</li>
+                <li>Resumo de documentos</li>
+                <li>Criação de conteúdo (artigos, roteiros)</li>
+                <li>Análise de sentimentos</li>
+                <li>Busca semântica em bases de conhecimento</li>
+                <li>Automação de atendimento ao cliente</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Evolução dos LLMs</h2>
+            <ul class="timeline">
+                <li><span class="ano">2018</span> — BERT (Google) revoluciona o processamento de linguagem</li>
+                <li><span class="ano">2020</span> — GPT-3 (OpenAI) demonstra poder com 175 bilhões de parâmetros</li>
+                <li><span class="ano">2022</span> — ChatGPT populariza LLMs no uso cotidiano</li>
+                <li><span class="ano">2023</span> — GPT-4, Claude, Gemini e LLaMA ampliam a concorrência</li>
+                <li><span class="ano">2024-2025</span> — Modelos multimodais (texto + imagem + áudio + vídeo)</li>
+                <li><span class="ano">2026</span> — Agentes autônomos e raciocínio avançado</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Limitações</h2>
+            <ul style="padding-left: 20px; line-height: 2.2;">
+                <li><span class="highlight">Alucinações:</span> O modelo pode gerar informações falsas com aparente confiança.</li>
+                <li><span class="highlight">Corte de conhecimento:</span> Só conhece dados até uma data específica de treinamento.</li>
+                <li><span class="highlight">Sesgos:</span> Pode reproduzir vieses presentes nos dados de treinamento.</li>
+                <li><span class="highlight">Custo computacional:</span> Treinar e rodar grandes modelos exige hardware poderoso.</li>
+                <li><span class="highlight">Falta de raciocínio real:</span> O modelo não "entenda" como um humano — ele prevê padrões.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Resumo</h2>
+            <p>
+                Um LLM é uma ferramenta poderosa de IA que revolutionou a forma como interagimos com máquinas.
+                Ele aprende padrões da linguagem humana a partir de dados massivos e gera respostas com base
+                em probabilidade estatística. Apesar de suas limitações, os LLMs estão transformando áreas
+                como programação, educação, saúde, customer service e muitas outras.
+            </p>
+        </div>
+
+        <footer>
+            Criado para fins educacionais — 2026
+        </footer>
+    </div>
+</body>
+</html>
