@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First English Words — Vocabulário com Imagens</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            background-attachment: fixed;
+            color: #333;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            color: white;
+            padding: 50px 20px 40px;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        header h1 { font-size: 2.6rem; margin-bottom: 8px; }
+        header p { font-size: 1.15rem; opacity: 0.95; }
+        .controls {
+            max-width: 1000px;
+            margin: -25px auto 0;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        .search-box {
+            background: white;
+            border-radius: 50px;
+            padding: 8px 8px 8px 20px;
+            display: flex;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            align-items: center;
+        }
+        .search-box input {
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 1rem;
+            padding: 8px;
+        }
+        .search-box span { font-size: 1.3rem; }
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .filters button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #555;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.2s;
+        }
+        .filters button:hover { transform: translateY(-2px); }
+        .filters button.active {
+            background: #4facfe;
+            color: white;
+        }
+        main {
+            max-width: 1100px;
+            margin: 30px auto 40px;
+            padding: 0 20px;
+        }
+        .category-title {
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 18px;
+        }
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 20px 10px 16px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.14);
+            border-color: #4facfe;
+        }
+        .card .img {
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 12px;
+            display: block;
+            filter: drop-shadow(0 3px 4px rgba(0,0,0,0.15));
+        }
+        .card .en {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #2c3e50;
+        }
+        .card .pt {
+            font-size: 0.95rem;
+            color: #888;
+            margin-top: 2px;
+        }
+        .card .speak {
+            margin-top: 10px;
+            border: none;
+            background: #eef6ff;
+            color: #4facfe;
+            border-radius: 20px;
+            padding: 6px 14px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        .card .speak:hover { background: #4facfe; color: white; }
+        .hidden { display: none !important; }
+        .empty {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-size: 1.1rem;
+            display: none;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .tip {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            color: #7a6200;
+            padding: 12px 18px;
+            border-radius: 12px;
+            max-width: 1000px;
+            margin: 20px auto 0;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .grid { grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); }
+            .card .img { font-size: 3.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🖼️ My First English Words</h1>
+        <p>Aprenda inglês vendo imagens — clique no cartão para ouvir a pronúncia!</p>
+    </header>
+
+    <div class="controls">
+        <div class="search-box">
+            <span>🔍</span>
+            <input type="text" id="search" placeholder="Buscar... ex: cat, maçã, house">
+        </div>
+        <div class="filters" id="filters">
+            <button class="active" data-cat="all">🌍 Todos</button>
+            <button data-cat="casa">🏠 Casa</button>
+            <button data-cat="animais">🐾 Animais</button>
+            <button data-cat="frutas">🍎 Frutas</button>
+            <button data-cat="objetos">🎒 Objetos do dia a dia</button>
+            <button data-cat="natureza">🌳 Natureza</button>
+        </div>
+    </div>
+
+    <div class="tip">💡 <strong>Dica:</strong> Clique em 🔊 para ouvir como se fala a palavra em inglês!</div>
+
+    <main id="content"></main>
+    <div class="empty" id="empty">😕 Nenhuma palavra encontrada. Tente outra busca!</div>
+
+    <footer>Criado para fins educacionais — Aprenda inglês de forma divertida 🇬🇧 — 2026</footer>
+
+    <script>
+        const words = [
+            // CASA
+            { en: "House", pt: "Casa", emoji: "🏠", cat: "casa" },
+            { en: "Door", pt: "Porta", emoji: "🚪", cat: "casa" },
+            { en: "Window", pt: "Janela", emoji: "🪟", cat: "casa" },
+            { en: "Bed", pt: "Cama", emoji: "🛏️", cat: "casa" },
+            { en: "Chair", pt: "Cadeira", emoji: "🪑", cat: "casa" },
+            { en: "Table", pt: "Mesa", emoji: "🍽️", cat: "casa" },
+            { en: "Lamp", pt: "Luminária", emoji: "💡", cat: "casa" },
+            { en: "Sofa", pt: "Sofá", emoji: "🛋️", cat: "casa" },
+            { en: "TV", pt: "Televisão", emoji: "📺", cat: "casa" },
+            { en: "Shower", pt: "Chuveiro", emoji: "🚿", cat: "casa" },
+
+            // ANIMAIS
+            { en: "Cat", pt: "Gato", emoji: "🐱", cat: "animais" },
+            { en: "Dog", pt: "Cachorro", emoji: "🐶", cat: "animais" },
+            { en: "Bird", pt: "Pássaro", emoji: "🐦", cat: "animais" },
+            { en: "Fish", pt: "Peixe", emoji: "🐟", cat: "animais" },
+            { en: "Lion", pt: "Leão", emoji: "🦁", cat: "animais" },
+            { en: "Monkey", pt: "Macaco", emoji: "🐒", cat: "animais" },
+            { en: "Elephant", pt: "Elefante", emoji: "🐘", cat: "animais" },
+            { en: "Horse", pt: "Cavalo", emoji: "🐴", cat: "animais" },
+            { en: "Cow", pt: "Vaca", emoji: "🐄", cat: "animais" },
+            { en: "Butterfly", pt: "Borboleta", emoji: "🦋", cat: "animais" },
+
+            // FRUTAS
+            { en: "Apple", pt: "Maçã", emoji: "🍎", cat: "frutas" },
+            { en: "Banana", pt: "Banana", emoji: "🍌", cat: "frutas" },
+            { en: "Orange", pt: "Laranja", emoji: "🍊", cat: "frutas" },
+            { en: "Strawberry", pt: "Morango", emoji: "🍓", cat: "frutas" },
+            { en: "Grapes", pt: "Uvas", emoji: "🍇", cat: "frutas" },
+            { en: "Watermelon", pt: "Melancia", emoji: "🍉", cat: "frutas" },
+            { en: "Pineapple", pt: "Abacaxi", emoji: "🍍", cat: "frutas" },
+            { en: "Mango", pt: "Manga", emoji: "🥭", cat: "frutas" },
+            { en: "Lemon", pt: "Limão", emoji: "🍋", cat: "frutas" },
+            { en: "Pear", pt: "Pera", emoji: "🍐", cat: "frutas" },
+
+            // OBJETOS
+            { en: "Car", pt: "Carro", emoji: "🚗", cat: "objetos" },
+            { en: "Bicycle", pt: "Bicicleta", emoji: "🚲", cat: "objetos" },
+            { en: "Book", pt: "Livro", emoji: "📚", cat: "objetos" },
+            { en: "Pencil", pt: "Lápis", emoji: "✏️", cat: "objetos" },
+            { en: "Phone", pt: "Celular", emoji: "📱", cat: "objetos" },
+            { en: "Ball", pt: "Bola", emoji: "⚽", cat: "objetos" },
+            { en: "Clock", pt: "Relógio", emoji: "⏰", cat: "objetos" },
+            { en: "Umbrella", pt: "Guarda-chuva", emoji: "☂️", cat: "objetos" },
+            { en: "Backpack", pt: "Mochila", emoji: "🎒", cat: "objetos" },
+            { en: "Shoes", pt: "Tênis / Sapatos", emoji: "👟", cat: "objetos" },
+
+            // NATUREZA
+            { en: "Sun", pt: "Sol", emoji: "☀️", cat: "natureza" },
+            { en: "Moon", pt: "Lua", emoji: "🌙", cat: "natureza" },
+            { en: "Star", pt: "Estrela", emoji: "⭐", cat: "natureza" },
+            { en: "Tree", pt: "Árvore", emoji: "🌳", cat: "natureza" },
+            { en: "Flower", pt: "Flor", emoji: "🌸", cat: "natureza" },
+            { en: "Rain", pt: "Chuva", emoji: "🌧️", cat: "natureza" },
+            { en: "Cloud", pt: "Nuvem", emoji: "☁️", cat: "natureza" },
+            { en: "Rainbow", pt: "Arco-íris", emoji: "🌈", cat: "natureza" },
+        ];
+
+        const catNames = {
+            casa: "🏠 Casa / Home",
+            animais: "🐾 Animais / Animals",
+            frutas: "🍎 Frutas / Fruits",
+            objetos: "🎒 Objetos do dia a dia / Everyday objects",
+            natureza: "🌳 Natureza / Nature"
+        };
+
+        const content = document.getElementById("content");
+        const searchInput = document.getElementById("search");
+        const emptyMsg = document.getElementById("empty");
+        let activeCat = "all";
+
+        function speak(text) {
+            if (!("speechSynthesis" in window)) {
+                alert("Seu navegador não suporta áudio.");
+                return;
+            }
+            speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = "en-US";
+            u.rate = 0.85;
+            speechSynthesis.speak(u);
+        }
+
+        function render() {
+            const term = searchInput.value.toLowerCase().trim();
+            content.innerHTML = "";
+            let total = 0;
+
+            const cats = activeCat === "all"
+                ? Object.keys(catNames)
+                : [activeCat];
+
+            cats.forEach(cat => {
+                const items = words.filter(w =>
+                    w.cat === cat &&
+                    (w.en.toLowerCase().includes(term) || w.pt.toLowerCase().includes(term))
+                );
+                if (items.length === 0) return;
+                total += items.length;
+
+                const h2 = document.createElement("h2");
+                h2.className = "category-title";
+                h2.textContent = catNames[cat];
+                content.appendChild(h2);
+
+                const grid = document.createElement("div");
+                grid.className = "grid";
+
+                items.forEach(w => {
+                    const card = document.createElement("div");
+                    card.className = "card";
+                    card.innerHTML =
+                        '<span class="img">' + w.emoji + '</span>' +
+                        '<div class="en">' + w.en + '</div>' +
+                        '<div class="pt">' + w.pt + '</div>' +
+                        '<button class="speak">🔊 Ouvir</button>';
+                    card.addEventListener("click", () => speak(w.en));
+                    grid.appendChild(card);
+                });
+
+                content.appendChild(grid);
+            });
+
+            emptyMsg.style.display = total === 0 ? "block" : "none";
+        }
+
+        document.getElementById("filters").addEventListener("click", (e) => {
+            if (e.target.tagName !== "BUTTON") return;
+            document.querySelectorAll("#filters button").forEach(b => b.classList.remove("active"));
+            e.target.classList.add("active");
+            activeCat = e.target.dataset.cat;
+            render();
+        });
+
+        searchInput.addEventListener("input", render);
+        render();
+    </script>
+</body>
+</html>
