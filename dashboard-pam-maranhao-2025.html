@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAM 2025 - Maranhão | Dashboard IBGE</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#f1f4f9;color:#1e293b}
+header{background:#0b3d2e;color:#fff;padding:28px 32px}
+header h1{font-size:28px}
+header p{opacity:.85;margin-top:6px}
+.badge{display:inline-block;background:#16a34a;color:#fff;padding:4px 12px;border-radius:20px;font-size:13px;margin-top:10px}
+.container{max-width:1200px;margin:0 auto;padding:24px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}
+.card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.06);border-left:6px solid #16a34a}
+.card h3{font-size:13px;text-transform:uppercase;color:#64748b}
+.card .big{font-size:30px;font-weight:800;margin:8px 0}
+.card .sub{font-size:14px;color:#16a34a;font-weight:600}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.panel{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.06);margin-bottom:20px}
+.panel h2{font-size:18px;margin-bottom:12px;border-bottom:2px solid #e2e8f0;padding-bottom:8px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:10px;text-align:left;border-bottom:1px solid #e2e8f0}
+th{background:#f8fafc}
+.bar{height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;background:#16a34a}
+.pos{color:#16a34a;font-weight:700}.neg{color:#dc2626;font-weight:700}
+footer{padding:20px;text-align:center;color:#64748b;font-size:13px}
+a{color:#0b3d2e}
+</style>
+</head>
+<body>
+<header>
+<h1>PAM 2025 — Maranhão</h1>
+<p>Produção Agrícola Municipal • IBGE SIDRA Tabela 5457 • API v3 agregados</p>
+<span class="badge">Ano referência 2025 • Publicado 17/09/2026 • 217 municípios produtores</span>
+</header>
+<div class="container">
+<div class="kpis">
+<div class="card"><h3>Valor da produção</h3><div class="big">R$ 13,94 bi</div><div class="sub">+7,4% vs 2024</div></div>
+<div class="card"><h3>Área plantada</h3><div class="big">2,19 M ha</div><div class="sub">+5,3% vs 2024</div></div>
+<div class="card"><h3>Soja + Milho</h3><div class="big">85,4%</div><div class="sub">do valor estadual</div></div>
+<div class="card"><h3>Maior produtor</h3><div class="big">Balsas</div><div class="sub">R$ 2,42 bi • 17,4%</div></div>
+</div>
+
+<div class="grid">
+<div class="panel"><h2>Valor por produto (Top 10) — R$ mil</h2><canvas id="cValor"></canvas></div>
+<div class="panel"><h2>Área por produto (ha)</h2><canvas id="cArea"></canvas></div>
+</div>
+
+<div class="panel"><h2>Top produtos 2025 vs 2024</h2>
+<table id="tProd"><thead><tr><th>Produto</th><th>Valor 2025 (mil R$)</th><th>Share</th><th>Var 24/25</th><th>Qtd (t)</th></tr></thead><tbody></tbody></table>
+</div>
+
+<div class="grid">
+<div class="panel"><h2>Top municípios por valor</h2><canvas id="cMun"></canvas></div>
+<div class="panel"><h2>Ranking municípios</h2><table id="tMun"><thead><tr><th>Município</th><th>Valor (mil R$)</th><th>%</th></tr></thead><tbody></tbody></table></div>
+</div>
+
+<div class="panel"><h2>Fontes API IBGE</h2>
+<p style="font-size:14px;line-height:1.8">
+• <a href="https://servicodados.ibge.gov.br/api/v1/pesquisas/14" target="_blank">/v1/pesquisas/14 — Lavoura Temporária</a><br>
+• <a href="https://servicodados.ibge.gov.br/api/v3/agregados/5457/metadados" target="_blank">/v3/agregados/5457/metadados — periodicidade 1974-2025</a><br>
+• <a href="https://servicodados.ibge.gov.br/api/v3/agregados/5457/periodos/2025/variaveis/215?localidades=N3[21]&view=flat" target="_blank">/5457/2025/215?localidades=N3[21] — Valor MA</a><br>
+• <a href="https://sidra.ibge.gov.br/tabela/5457" target="_blank">SIDRA Tabela 5457</a>
+</p>
+</div>
+</div>
+<footer>Dados: IBGE PAM 2025 • Dashboard gerado 13/10/2026</footer>
+<script>
+const produtos=[
+{n:"Soja",v:8921025,s:64.0,var:7.0,q:4423088},
+{n:"Milho",v:2975809,s:21.4,var:7.4,q:2712134},
+{n:"Cana-de-açúcar",v:778886,s:5.6,var:54.1,q:2583724},
+{n:"Arroz",v:305535,s:2.2,var:-21.5,q:180334},
+{n:"Algodão herbáceo",v:299591,s:2.1,var:2.7,q:135690},
+{n:"Mandioca",v:230614,s:1.7,var:-7.1,q:370376},
+{n:"Banana",v:139008,s:1.0,var:-7.8,q:78718},
+{n:"Feijão",v:121969,s:0.9,var:10.8,q:29310},
+{n:"Abacaxi",v:69234,s:0.5,var:-17.2,q:38428},
+{n:"Melancia",v:35735,s:0.3,var:16.6,q:25763}
+];
+const areas=[
+{n:"Soja",a:1373769},{n:"Milho",a:536729},{n:"Arroz",a:77232},{n:"Mandioca",a:47185},{n:"Cana",a:45890},{n:"Feijão",a:45125},{n:"Algodão",a:32996},{n:"Sorgo",a:15023}
+];
+const muns=[
+{n:"Balsas",v:2423380},{n:"Tasso Fragoso",v:1682987},{n:"S.R. Mangabeiras",v:778164},{n:"Açailândia",v:592206},{n:"Alto Parnaíba",v:544707},{n:"Riachão",v:462941},{n:"Sambaíba",v:454197},{n:"Buriticupu",v:432016}
+];
+new Chart(document.getElementById('cValor'),{type:'bar',data:{labels:produtos.map(p=>p.n),datasets:[{data:produtos.map(p=>p.v),backgroundColor:'#16a34a'}]},options:{indexAxis:'y',plugins:{legend:{display:false}}}});
+new Chart(document.getElementById('cArea'),{type:'doughnut',data:{labels:areas.map(p=>p.n),datasets:[{data:areas.map(p=>p.a),backgroundColor:['#0b3d2e','#16a34a','#65a30d','#a3e635','#facc15','#f59e0b','#ea580c','#dc2626']}]}});
+new Chart(document.getElementById('cMun'),{type:'bar',data:{labels:muns.map(p=>p.n),datasets:[{data:muns.map(p=>p.v),backgroundColor:'#0b3d2e'}]},options:{indexAxis:'y',plugins:{legend:{display:false}}}});
+const tb=document.querySelector('#tProd tbody');
+produtos.forEach(p=>{
+const cls=p.var>=0?'pos':'neg';
+tb.innerHTML+=`<tr><td>${p.n}</td><td>${p.v.toLocaleString('pt-BR')}</td><td><div class="bar"><i style="width:${p.s}%"></i></div>${p.s}%</td><td class="${cls}">${p.var}%</td><td>${p.q.toLocaleString('pt-BR')}</td></tr>`;
+});
+const tm=document.querySelector('#tMun tbody');
+muns.forEach(m=>{tm.innerHTML+=`<tr><td>${m.n}</td><td>${m.v.toLocaleString('pt-BR')}</td><td>${(m.v/13936879*100).toFixed(1)}%</td></tr>`;});
+</script>
+</body>
+</html>
