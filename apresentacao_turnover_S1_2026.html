@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise de Rotatividade - S1 2026 | Apresentação Gerencial</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f3f5;color:#333;line-height:1.6}
+header{background:#1a3a4a;color:#fff;padding:36px 24px;text-align:center}
+header .badge{display:inline-block;background:#ECB11F;color:#1a3a4a;font-weight:700;font-size:.8rem;padding:4px 14px;border-radius:20px;margin-bottom:12px;letter-spacing:1px}
+header h1{font-size:2rem;margin-bottom:6px}
+header p{opacity:.85;font-size:1rem}
+.container{max-width:1000px;margin:-24px auto 40px;padding:0 20px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-bottom:24px}
+.kpi{background:#fff;border-radius:12px;padding:22px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.08);border-top:5px solid #007E7A}
+.kpi.alerta{border-top-color:#ECB11F}
+.kpi .valor{font-size:2.2rem;font-weight:800;color:#007E7A}
+.kpi.alerta .valor{color:#b78a00}
+.kpi .rotulo{font-size:.85rem;color:#666;margin-top:4px}
+.kpi small{color:#999;font-size:.75rem}
+.card{background:#fff;border-radius:12px;padding:28px;margin-bottom:20px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.card h2{color:#007E7A;font-size:1.25rem;margin-bottom:14px;border-bottom:3px solid #ECB11F;display:inline-block;padding-bottom:4px}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.9rem}
+th{background:#007E7A;color:#fff;padding:10px 8px;text-align:left}
+td{padding:10px 8px;border-bottom:1px solid #eee}
+tr:nth-child(even) td{background:#f8fafa}
+tr.total td{background:#fff8e1;font-weight:700}
+.bars{display:flex;align-items:flex-end;gap:14px;height:180px;margin-top:16px;padding:10px 6px 0;border-left:2px solid #ddd;border-bottom:2px solid #ddd}
+.bar-group{flex:1;text-align:center}
+.bar{border-radius:6px 6px 0 0;margin:0 auto 6px}
+.bar.adm{background:#007E7A}
+.bar.des{background:#c0392b}
+.legenda{display:flex;gap:18px;margin-top:12px;font-size:.85rem;color:#555}
+.dot{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+ul{padding-left:20px}
+li{margin-bottom:8px}
+.plano li{list-style:none;margin-bottom:12px;background:#f8fafa;border-left:4px solid #007E7A;padding:10px 14px;border-radius:0 8px 8px 0}
+.formula{background:#1a3a4a;color:#fff;padding:14px 18px;border-radius:8px;font-family:monospace;margin-top:12px;font-size:.9rem}
+.aviso{background:#fff8e1;border:1px solid #ECB11F;border-radius:8px;padding:14px 18px;font-size:.85rem;margin-top:16px}
+footer{text-align:center;color:#747678;font-size:.8rem;padding:24px}
+@media print{header{padding:20px}.container{margin:0 auto} .no-print{display:none}}
+button{cursor:pointer;background:#007E7A;color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:.9rem}
+button:hover{background:#005f5c}
+</style>
+</head>
+<body>
+<header>
+<div class="badge">DADOS SIMULADOS PARA ESTUDO</div>
+<h1>Análise de Rotatividade (Turnover)</h1>
+<p>S1 2026 — Janeiro a Junho | Quadro médio: 60 colaboradores | Admissões: 6 | Desligamentos: 8</p>
+</header>
+
+<div class="container">
+<div class="kpis" style="margin-top:28px">
+<div class="kpi alerta"><div class="valor">11,67%</div><div class="rotulo"><strong>Turnover geral</strong><br>[(6+8)/2]/60 × 100</div><small>Faixa: atenção (10-15% a.a.)</small></div>
+<div class="kpi"><div class="valor">13,33%</div><div class="rotulo"><strong>Taxa de desligamentos</strong><br>8/60 × 100</div><small>Perda de quadro no semestre</small></div>
+<div class="kpi"><div class="valor">8,33%</div><div class="rotulo"><strong>Turnover voluntário</strong><br>5/60 × 100</div><small>62,5% das saídas foram pedido do funcionário</small></div>
+<div class="kpi"><div class="valor">58</div><div class="rotulo"><strong>Quadro ativo fim jun/26</strong><br>Queda de 2 postos</div><small>Reposição incompleta</small></div>
+</div>
+
+<div class="card">
+<h2>1. Evolução mensal — S1 2026</h2>
+<table>
+<tr><th>Período</th><th>Adm.</th><th>Desl.</th><th>Vol. / Invol.</th><th>Quadro fim</th><th>Depto. crítico / Motivo</th></tr>
+<tr><td>2026-01</td><td>1</td><td>2</td><td>1 / 1</td><td>59</td><td>Comercial — salário maior na concorrência</td></tr>
+<tr><td>2026-02</td><td>0</td><td>1</td><td>1 / 0</td><td>58</td><td>Operações — falta de crescimento (talento)</td></tr>
+<tr><td>2026-03</td><td>2</td><td>1</td><td>0 / 1</td><td>59</td><td>Logística — baixo desempenho</td></tr>
+<tr><td>2026-04</td><td>1</td><td>2</td><td>1 / 1</td><td>58</td><td>Atendimento — liderança / clima</td></tr>
+<tr><td>2026-05</td><td>2</td><td>1</td><td>1 / 0</td><td>59</td><td>Comercial — plano de carreira</td></tr>
+<tr><td>2026-06</td><td>0</td><td>1</td><td>1 / 0</td><td>58</td><td>Financeiro — proposta salarial</td></tr>
+<tr class="total"><td>TOTAL</td><td>6</td><td>8</td><td>5 / 3</td><td>58</td><td>—</td></tr>
+</table>
+<div class="bars">
+<div class="bar-group"><div class="bar adm" style="height:40px;width:40px"></div><div class="bar des" style="height:80px;width:40px"></div><strong>Jan</strong><br><small>1/2</small></div>
+<div class="bar-group"><div class="bar adm" style="height:0px;width:40px"></div><div class="bar des" style="height:40px;width:40px"></div><strong>Fev</strong><br><small>0/1</small></div>
+<div class="bar-group"><div class="bar adm" style="height:80px;width:40px"></div><div class="bar des" style="height:40px;width:40px"></div><strong>Mar</strong><br><small>2/1</small></div>
+<div class="bar-group"><div class="bar adm" style="height:40px;width:40px"></div><div class="bar des" style="height:80px;width:40px"></div><strong>Abr</strong><br><small>1/2</small></div>
+<div class="bar-group"><div class="bar adm" style="height:80px;width:40px"></div><div class="bar des" style="height:40px;width:40px"></div><strong>Mai</strong><br><small>2/1</small></div>
+<div class="bar-group"><div class="bar adm" style="height:0px;width:40px"></div><div class="bar des" style="height:40px;width:40px"></div><strong>Jun</strong><br><small>0/1</small></div>
+</div>
+<div class="legenda"><span><span class="dot" style="background:#007E7A"></span>Admissões</span><span><span class="dot" style="background:#c0392b"></span>Desligamentos</span></div>
+<div class="formula">Turnover geral (%) = [(Admissões + Desligamentos) / 2] / Quadro Ativo × 100 = [(6+8)/2]/60×100 = 11,67% — Fonte: cálculo próprio + Ticket 2026</div>
+</div>
+
+<div class="card">
+<h2>2. Interpretação executiva</h2>
+<p>Taxa de <strong>11,67% no semestre</strong> indica faixa de <strong>atenção</strong>: se o ritmo continuar, a projeção anual passa de 20%, entrando em faixa crítica (&gt;15% a.a.). O ponto mais grave é que <strong>5 das 8 saídas foram voluntárias</strong> — a empresa está perdendo gente que escolheu sair, incluindo 1 talento em Operações (risco disfuncional).</p>
+</div>
+
+<div class="card">
+<h2>3. Tipos prováveis</h2>
+<div class="grid2">
+<div><ul><li><strong>Voluntário (5) vs Involuntário (3):</strong> predomina pedido de demissão = sinal de insatisfação, não só corte.</li><li><strong>Disfuncional:</strong> perda em Operações e Comercial por carreira/salário = alto impacto.</li></ul></div>
+<div><ul><li><strong>Funcional:</strong> 2 desligamentos por baixo desempenho = baixo impacto, esperado.</li><li><strong>Evitável vs Inevitável:</strong> maioria evitável (remuneração, carreira, liderança).</li></ul></div>
+</div>
+</div>
+
+<div class="card">
+<h2>4. Causas a investigar</h2>
+<ul>
+<li><strong>1. Remuneração desalinhada</strong> — 2 saídas por proposta salarial maior (Comercial, Financeiro).</li>
+<li><strong>2. Falta de plano de carreira</strong> — talento de Operações saiu por falta de crescimento.</li>
+<li><strong>3. Liderança / clima no Atendimento</strong> — saída + corte no mesmo mês pedem pesquisa de clima e avaliação da gestão.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>5. Plano 30-60-90 dias</h2>
+<ul class="plano">
+<li><strong>30 dias — RH + Gestores:</strong> entrevistas de desligamento pendentes + pesquisa de clima relâmpago no Atendimento e Comercial. Indicador: 100% das 8 saídas documentadas.</li>
+<li><strong>60 dias — RH + Financeiro:</strong> benchmarking salarial Comercial/Financeiro e proposta de ajuste de benefícios. Indicador: tabela salarial revisada.</li>
+<li><strong>60 dias — Liderança:</strong> capacitação de feedback para supervisores do Atendimento + onboarding de 90 dias para os 6 admitidos. Indicador: turnover de novatos = 0.</li>
+<li><strong>90 dias — Diretoria:</strong> plano de carreira piloto em Operações para reter talentos. Indicador: 0 saídas voluntárias de talentos no trimestre seguinte.</li>
+</ul>
+<div class="aviso"><strong>Limitações:</strong> diagnóstico parcial — dados 100% simulados, sem benchmark do setor, sem série histórica real e sem entrevistas de desligamento. Próximos dados: pesquisa de clima, custo de reposição, tempo médio de vaga aberta. Fonte dos %: cálculo próprio em 13/10/2026 a partir de <em>simulacao_turnover_S1_2026.csv</em>.</div>
+</div>
+
+<div class="card no-print" style="text-align:center">
+<button onclick="window.print()">Imprimir / Salvar PDF para a reunião</button>
+<p style="margin-top:10px;font-size:.85rem;color:#666">Arquivo: apresentacao_turnover_S1_2026.html — abre em qualquer navegador, sem internet.</p>
+</div>
+</div>
+<footer>Fonte metodológica: Ticket Blog 2026 + Catho Empresas 2026 + Qulture.Rocks 2024 — Dados: SIMULADOS para estudo em 13/10/2026</footer>
+</body>
+</html>

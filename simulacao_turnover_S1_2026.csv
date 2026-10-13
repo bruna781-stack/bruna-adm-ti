@@ -1,0 +1,8 @@
+periodo,admissoes,desligamentos,deslig_voluntarios,deslig_involuntarios,quadro_medio,quadro_ativo_fim,departamento_critico,motivo_principal_saida,observacao
+2026-01,1,2,1,1,60,59,Comercial,salario maior na concorrencia,SIMULADO - 1 pedido demissao + 1 desligamento empresa por baixo desempenho
+2026-02,0,1,1,0,59,58,Operacoes,falta de crescimento,SIMULADO - talento pediu demissao - risco disfuncional
+2026-03,2,1,0,1,58,59,Logistica,baixo desempenho,SIMULADO - reposicao parcial Logistica + desligamento involuntario
+2026-04,1,2,1,1,59,58,Atendimento,lideranca/clima,SIMULADO - 1 pedido demissao por clima + 1 corte custos
+2026-05,2,1,1,0,58,59,Comercial,plano de carreira, SIMULADO - pedido demissao + 2 reposicoes
+2026-06,0,1,1,0,59,58,Financeiro,proposta salarial, SIMULADO - mes sem reposicao - quadro cai
+TOTAL_S1_2026,6,8,5,3,60,58,-,-,SIMULADO - totais para calculo semestral: [(6+8)/2]/60*100
