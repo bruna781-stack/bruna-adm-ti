@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dados e fontes</title>
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <div class="kicker">Desenvolvimento humano · Análise territorial</div>
+    <h1>Dados e fontes</h1>
+    <p>Arquivos para download, links das fontes e comandos para reconstruir o site.</p>
+  </div>
+</header>
+<nav class="menu"><div class="wrap"><a href="index.html">Visão geral</a><a href="estados.html">Estados</a><a href="comparacao.html">Comparação</a><a href="metodologia.html">Metodologia</a><a href="dados.html" aria-current="page">Dados</a></div></nav>
+<main>
+
+<section class="card">
+  <h2>Downloads</h2>
+  <p class="sub">Arquivos usados nas páginas, em CSV (separador ponto e vírgula, UTF-8 com BOM)
+  e JSON.</p>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Arquivo</th><th>Conteúdo</th><th>Formato</th></tr></thead>
+      <tbody>
+        <tr><td><a href="dados/idh_2025_uf.csv">idh_2025_uf.csv</a></td>
+          <td>IDH estimado 2025 por UF, com os três subíndices e insumos</td><td>CSV</td></tr>
+        <tr><td><a href="dados/idh_2025_uf.json">idh_2025_uf.json</a></td>
+          <td>Mesmos dados + metodologia e fontes</td><td>JSON</td></tr>
+        <tr><td><a href="dados/idhm_oficial_2024_uf.csv">idhm_oficial_2024_uf.csv</a></td>
+          <td>IDHM oficial 2024 por UF e dimensões</td><td>CSV</td></tr>
+        <tr><td><a href="dados/idhm_oficial_2024_uf.json">idhm_oficial_2024_uf.json</a></td>
+          <td>IDHM oficial + Brasil + série do IDH global</td><td>JSON</td></tr>
+        <tr><td><a href="dados/idh_oficial_pnud_brasil.csv">idh_oficial_pnud_brasil.csv</a></td>
+          <td>Série do IDH global do Brasil (PNUD), 1990–2023</td><td>CSV</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Fontes</h2>
+  <ul class="fontes">
+    <li>IBGE. <em>PNAD Contínua</em> — agregados 7395, 7113, 7126 e 7138, 2025.
+      <a href="https://servicodados.ibge.gov.br/api/docs/agregados?versao=3">API de Agregados v3</a>.</li>
+    <li>IBGE. <em>Projeções da População — Revisão 2024</em> — esperança de vida ao nascer, 2025.
+      <a href="https://www.ibge.gov.br/estatisticas/sociais/populacao/9109-projecao-da-populacao.html">Página oficial</a>.</li>
+    <li>IBGE. <em>Malha territorial</em> — API v3 de malhas, UFs.</li>
+    <li>Banco Mundial. <em>PPP conversion factor, GDP (LCU per international $)</em> — PA.NUS.PPP, Brasil, 2025.</li>
+    <li>PNUD/Ipea/FJP. <em>Atlas do Desenvolvimento Humano no Brasil</em> — IDHM oficial.
+      <a href="https://www.atlasbrasil.org.br/">atlasbrasil.org.br</a>.</li>
+    <li>Ipea. <em>IpeaData</em> — séries IDHM, IDHMED, IDHMLO, IDHMRE e PNUD_IDH.
+      <a href="http://www.ipeadata.gov.br/api/odata4/">API OData v4</a>.</li>
+  </ul>
+</section>
+
+<section class="card metodologia">
+  <h2>Reproduzir</h2>
+  <p>Na raiz do repositório:</p>
+  <pre><code>python .opencode/skills/analise-idh-ibge/coleta_ipea.py
+python .opencode/skills/analise-idh-ibge/gera_mapa_idh.py
+python .opencode/skills/site-idh-ibge/gera_site.py
+python .opencode/skills/site-idh-ibge/servir.py</code></pre>
+  <p>O primeiro comando baixa o IDHM oficial; o segundo coleta o IBGE e gera o mapa
+  autocontido; o terceiro monta este site; o quarto sobe um servidor local em
+  <code>http://localhost:8000</code>.</p>
+  <p>Parâmetros da estimativa: INPC médio de 2010 = 3206,17,
+  INPC médio de 2025 = 7487,45, PPP = 2,5544.
+  Dados gerados em 2026-11-03.</p>
+</section>
+
+</main>
+<footer class="rodape">
+  Elaboração própria. IDH estimado 2025 (IBGE) e IDHM oficial 2024 (Atlas/IpeaData) são
+  indicadores distintos — compare apenas dentro da mesma camada.
+</footer>
+<div class="tooltip" id="tooltip"></div>
+<script src="assets/dados.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

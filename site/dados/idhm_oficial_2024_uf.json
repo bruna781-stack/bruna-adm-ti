@@ -1,0 +1,332 @@
+{
+  "gerado_em": "2026-11-03T13:11:07+00:00",
+  "ano": 2024,
+  "fonte": {
+    "api": "http://www.ipeadata.gov.br/api/odata4",
+    "series": {
+      "idh": "IDHM",
+      "educacao": "IDHMED",
+      "longevidade": "IDHMLO",
+      "renda": "IDHMRE"
+    },
+    "serie_idh_global": "PNUD_IDH",
+    "observacao": "IDHM do Atlas do Desenvolvimento Humano (PNUD/Ipea/FJP), reproduzido pela API do IpeaData. Não é o IDH global do PNUD."
+  },
+  "brasil": {
+    "codigo": "0",
+    "idh": 0.805,
+    "educacao": 0.798,
+    "longevidade": 0.86,
+    "renda": 0.76,
+    "sigla": "BR",
+    "nome": "Brasil"
+  },
+  "ufs": {
+    "32": {
+      "codigo": "32",
+      "idh": 0.804,
+      "educacao": 0.784,
+      "longevidade": 0.87,
+      "renda": 0.763,
+      "sigla": "ES",
+      "nome": "Espírito Santo",
+      "posicao": 10
+    },
+    "29": {
+      "codigo": "29",
+      "idh": 0.759,
+      "educacao": 0.743,
+      "longevidade": 0.847,
+      "renda": 0.694,
+      "sigla": "BA",
+      "nome": "Bahia",
+      "posicao": 22
+    },
+    "22": {
+      "codigo": "22",
+      "idh": 0.764,
+      "educacao": 0.742,
+      "longevidade": 0.866,
+      "renda": 0.695,
+      "sigla": "PI",
+      "nome": "Piauí",
+      "posicao": 19
+    },
+    "21": {
+      "codigo": "21",
+      "idh": 0.745,
+      "educacao": 0.746,
+      "longevidade": 0.844,
+      "renda": 0.658,
+      "sigla": "MA",
+      "nome": "Maranhão",
+      "posicao": 27
+    },
+    "28": {
+      "codigo": "28",
+      "idh": 0.761,
+      "educacao": 0.731,
+      "longevidade": 0.856,
+      "renda": 0.705,
+      "sigla": "SE",
+      "nome": "Sergipe",
+      "posicao": 20
+    },
+    "35": {
+      "codigo": "35",
+      "idh": 0.838,
+      "educacao": 0.85,
+      "longevidade": 0.867,
+      "renda": 0.799,
+      "sigla": "SP",
+      "nome": "São Paulo",
+      "posicao": 2
+    },
+    "51": {
+      "codigo": "51",
+      "idh": 0.812,
+      "educacao": 0.816,
+      "longevidade": 0.845,
+      "renda": 0.776,
+      "sigla": "MT",
+      "nome": "Mato Grosso",
+      "posicao": 8
+    },
+    "16": {
+      "codigo": "16",
+      "idh": 0.759,
+      "educacao": 0.745,
+      "longevidade": 0.822,
+      "renda": 0.713,
+      "sigla": "AP",
+      "nome": "Amapá",
+      "posicao": 23
+    },
+    "41": {
+      "codigo": "41",
+      "idh": 0.822,
+      "educacao": 0.815,
+      "longevidade": 0.864,
+      "renda": 0.79,
+      "sigla": "PR",
+      "nome": "Paraná",
+      "posicao": 4
+    },
+    "42": {
+      "codigo": "42",
+      "idh": 0.833,
+      "educacao": 0.817,
+      "longevidade": 0.888,
+      "renda": 0.797,
+      "sigla": "SC",
+      "nome": "Santa Catarina",
+      "posicao": 3
+    },
+    "26": {
+      "codigo": "26",
+      "idh": 0.767,
+      "educacao": 0.764,
+      "longevidade": 0.842,
+      "renda": 0.702,
+      "sigla": "PE",
+      "nome": "Pernambuco",
+      "posicao": 17
+    },
+    "33": {
+      "codigo": "33",
+      "idh": 0.819,
+      "educacao": 0.826,
+      "longevidade": 0.844,
+      "renda": 0.789,
+      "sigla": "RJ",
+      "nome": "Rio de Janeiro",
+      "posicao": 5
+    },
+    "23": {
+      "codigo": "23",
+      "idh": 0.773,
+      "educacao": 0.783,
+      "longevidade": 0.871,
+      "renda": 0.677,
+      "sigla": "CE",
+      "nome": "Ceará",
+      "posicao": 16
+    },
+    "50": {
+      "codigo": "50",
+      "idh": 0.797,
+      "educacao": 0.786,
+      "longevidade": 0.84,
+      "renda": 0.766,
+      "sigla": "MS",
+      "nome": "Mato Grosso do Sul",
+      "posicao": 11
+    },
+    "17": {
+      "codigo": "17",
+      "idh": 0.797,
+      "educacao": 0.801,
+      "longevidade": 0.861,
+      "renda": 0.734,
+      "sigla": "TO",
+      "nome": "Tocantins",
+      "posicao": 12
+    },
+    "13": {
+      "codigo": "13",
+      "idh": 0.767,
+      "educacao": 0.788,
+      "longevidade": 0.841,
+      "renda": 0.68,
+      "sigla": "AM",
+      "nome": "Amazonas",
+      "posicao": 18
+    },
+    "24": {
+      "codigo": "24",
+      "idh": 0.778,
+      "educacao": 0.741,
+      "longevidade": 0.881,
+      "renda": 0.72,
+      "sigla": "RN",
+      "nome": "Rio Grande do Norte",
+      "posicao": 15
+    },
+    "43": {
+      "codigo": "43",
+      "idh": 0.818,
+      "educacao": 0.791,
+      "longevidade": 0.869,
+      "renda": 0.796,
+      "sigla": "RS",
+      "nome": "Rio Grande do Sul",
+      "posicao": 6
+    },
+    "53": {
+      "codigo": "53",
+      "idh": 0.866,
+      "educacao": 0.851,
+      "longevidade": 0.913,
+      "renda": 0.837,
+      "sigla": "DF",
+      "nome": "Distrito Federal",
+      "posicao": 1
+    },
+    "25": {
+      "codigo": "25",
+      "idh": 0.76,
+      "educacao": 0.73,
+      "longevidade": 0.864,
+      "renda": 0.696,
+      "sigla": "PB",
+      "nome": "Paraíba",
+      "posicao": 21
+    },
+    "15": {
+      "codigo": "15",
+      "idh": 0.758,
+      "educacao": 0.736,
+      "longevidade": 0.854,
+      "renda": 0.692,
+      "sigla": "PA",
+      "nome": "Pará",
+      "posicao": 24
+    },
+    "12": {
+      "codigo": "12",
+      "idh": 0.754,
+      "educacao": 0.74,
+      "longevidade": 0.848,
+      "renda": 0.684,
+      "sigla": "AC",
+      "nome": "Acre",
+      "posicao": 25
+    },
+    "52": {
+      "codigo": "52",
+      "idh": 0.815,
+      "educacao": 0.821,
+      "longevidade": 0.863,
+      "renda": 0.763,
+      "sigla": "GO",
+      "nome": "Goiás",
+      "posicao": 7
+    },
+    "31": {
+      "codigo": "31",
+      "idh": 0.809,
+      "educacao": 0.803,
+      "longevidade": 0.875,
+      "renda": 0.754,
+      "sigla": "MG",
+      "nome": "Minas Gerais",
+      "posicao": 9
+    },
+    "27": {
+      "codigo": "27",
+      "idh": 0.746,
+      "educacao": 0.729,
+      "longevidade": 0.823,
+      "renda": 0.691,
+      "sigla": "AL",
+      "nome": "Alagoas",
+      "posicao": 26
+    },
+    "11": {
+      "codigo": "11",
+      "idh": 0.786,
+      "educacao": 0.778,
+      "longevidade": 0.85,
+      "renda": 0.734,
+      "sigla": "RO",
+      "nome": "Rondônia",
+      "posicao": 13
+    },
+    "14": {
+      "codigo": "14",
+      "idh": 0.78,
+      "educacao": 0.81,
+      "longevidade": 0.823,
+      "renda": 0.713,
+      "sigla": "RR",
+      "nome": "Roraima",
+      "posicao": 14
+    }
+  },
+  "serie_idh_pnud_brasil": {
+    "1990": 0.641,
+    "1991": 0.645,
+    "1992": 0.648,
+    "1993": 0.654,
+    "1994": 0.659,
+    "1995": 0.666,
+    "1996": 0.671,
+    "1997": 0.676,
+    "1998": 0.68,
+    "1999": 0.684,
+    "2000": 0.69,
+    "2001": 0.694,
+    "2002": 0.7,
+    "2003": 0.705,
+    "2004": 0.712,
+    "2005": 0.718,
+    "2006": 0.725,
+    "2007": 0.732,
+    "2008": 0.739,
+    "2009": 0.742,
+    "2010": 0.748,
+    "2011": 0.753,
+    "2012": 0.758,
+    "2013": 0.762,
+    "2014": 0.765,
+    "2015": 0.764,
+    "2016": 0.765,
+    "2017": 0.77,
+    "2018": 0.774,
+    "2019": 0.776,
+    "2020": 0.77,
+    "2021": 0.768,
+    "2022": 0.78,
+    "2023": 0.786
+  }
+}

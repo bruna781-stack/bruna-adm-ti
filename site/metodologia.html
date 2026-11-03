@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metodologia</title>
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <div class="kicker">Desenvolvimento humano · Análise territorial</div>
+    <h1>Metodologia</h1>
+    <p>Como cada camada é construída, quais insumos entram e o que não pode ser comparado.</p>
+  </div>
+</header>
+<nav class="menu"><div class="wrap"><a href="index.html">Visão geral</a><a href="estados.html">Estados</a><a href="comparacao.html">Comparação</a><a href="metodologia.html" aria-current="page">Metodologia</a><a href="dados.html">Dados</a></div></nav>
+<main>
+
+<section class="card metodologia">
+  <h2>Camada 1 — IDH estimado 2025</h2>
+  <p class="sub">Estimativa própria com insumos oficiais do IBGE. Não é o IDH do PNUD nem o IDHM do Atlas.</p>
+
+  <h3>Renda</h3>
+  <p>Rendimento médio mensal real domiciliar per capita (PNAD Contínua, agregado 7395,
+  variável 4196, 2025), anualizado e convertido para dólares de paridade de poder de compra
+  pelo fator <code>2,5544</code> (Banco Mundial, PA.NUS.PPP, 2025).</p>
+  <p><code>I_renda = [ln(renda PPC) − ln(100)] / [ln(75.000) − ln(100)]</code></p>
+
+  <h3>Educação</h3>
+  <p>Média de anos de estudo das pessoas de 25 anos ou mais (agregado 7126, variável 3593) e
+  taxa de escolarização por grupo de idade (agregado 7138, variável 10276), usada para estimar
+  os anos esperados de estudo:</p>
+  <p><code>anos esperados = 9 × escolarização(6–14) + 3 × escolarização(15–17) + 7 × escolarização(18–24)</code></p>
+  <p><code>I_educação = [min(anos de estudo, 18) / 18 + min(anos esperados, 15) / 15] / 2</code></p>
+
+  <h3>Longevidade</h3>
+  <p>Esperança de vida ao nascer projetada para 2025 nas Projeções da População — Revisão 2024
+  (IBGE).</p>
+  <p><code>I_longevidade = (esperança de vida − 20) / (85 − 20)</code></p>
+
+  <h3>Índice final</h3>
+  <p><code>IDH estimado = (I_renda × I_educação × I_longevidade)^(1/3)</code></p>
+</section>
+
+<section class="card metodologia">
+  <h2>Camada 2 — IDHM oficial 2024</h2>
+  <p class="sub">Atlas do Desenvolvimento Humano no Brasil (PNUD, Ipea e FJP), via API do IpeaData.</p>
+  <p>O IDHM é o IDH adaptado à realidade municipal brasileira. Para as UFs, o valor más recente
+  publicado é <strong>2024</strong>. As séries usadas são:</p>
+  <ul>
+    <li><code>IDHM</code> — índice completo;</li>
+    <li><code>IDHMED</code> — dimensão educação;</li>
+    <li><code>IDHMLO</code> — dimensão longevidade;</li>
+    <li><code>IDHMRE</code> — dimensão renda.</li>
+  </ul>
+  <p>Endpoint: <code>http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='IDHM')</code>,
+  filtrando <code>NIVNOME = "Estados"</code> e o ano 2024.</p>
+  <p>O IDH global do PNUD para o Brasil é outra série (<code>PNUD_IDH</code>), com último valor
+  <strong>0,786</strong> em 2023.
+  Não usar o IDH global no lugar do IDHM.</p>
+</section>
+
+<section class="card metodologia">
+  <h2>Faixas de classificação</h2>
+  <p>As réguas do IDH (PNUD) e do IDHM (Atlas) são diferentes no intervalo médio e baixo.</p>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Faixa</th><th>IDH (PNUD)</th><th>IDHM (Atlas)</th></tr></thead>
+      <tbody>
+        <tr><td>Muito alto</td><td class="num">≥ 0,800</td><td class="num">0,800 – 1,000</td></tr>
+        <tr><td>Alto</td><td class="num">0,700 – 0,799</td><td class="num">0,700 – 0,799</td></tr>
+        <tr><td>Médio</td><td class="num">0,550 – 0,699</td><td class="num">0,600 – 0,699</td></tr>
+        <tr><td>Baixo</td><td class="num">&lt; 0,550</td><td class="num">0,500 – 0,599</td></tr>
+        <tr><td>Muito baixo</td><td class="num">—</td><td class="num">0,000 – 0,499</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="card metodologia">
+  <h2>Limitações</h2>
+  <ul>
+    <li>O IDH usa RNB per capita em PPC; aqui usamos renda domiciliar per capita, que tende a ser menor.</li>
+    <li>A esperança de vida de 2025 é projetada, não observada.</li>
+    <li>A educação usa aproximação para os anos esperados de estudo.</li>
+    <li>A PNAD Contínua é amostral: diferenças pequenas entre estados podem não ser significativas.</li>
+    <li>O IDHM oficial é de 2024; a estimativa é de 2025. Não formar série temporal com as duas.</li>
+    <li>Correlação entre as camadas não implica causalidade.</li>
+  </ul>
+</section>
+
+</main>
+<footer class="rodape">
+  Elaboração própria. IDH estimado 2025 (IBGE) e IDHM oficial 2024 (Atlas/IpeaData) são
+  indicadores distintos — compare apenas dentro da mesma camada.
+</footer>
+<div class="tooltip" id="tooltip"></div>
+<script src="assets/dados.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

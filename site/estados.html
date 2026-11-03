@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ranking por estado</title>
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <div class="kicker">Desenvolvimento humano · Análise territorial</div>
+    <h1>Ranking por estado</h1>
+    <p>As 27 unidades da federação nas duas camadas, com os componentes de cada índice.</p>
+  </div>
+</header>
+<nav class="menu"><div class="wrap"><a href="index.html">Visão geral</a><a href="estados.html" aria-current="page">Estados</a><a href="comparacao.html">Comparação</a><a href="metodologia.html">Metodologia</a><a href="dados.html">Dados</a></div></nav>
+<main>
+
+<section class="card">
+  <h2>Ranking por unidade da federação</h2>
+  <p class="sub">Use a busca e a ordenação. A camada <strong>estimada</strong> inclui os insumos
+  do IBGE; a <strong>oficial</strong> traz o IDHM e as dimensões do Atlas.</p>
+  <div class="controles">
+    <span class="grupo-rot">Camada</span>
+    <button data-camada="estimado" class="ativo">IDH estimado 2025</button>
+    <button data-camada="oficial">IDHM oficial 2024</button>
+  </div>
+  <div class="filtros">
+    <input id="busca" type="search" placeholder="Buscar UF ou estado…" aria-label="Buscar UF">
+    <select id="ordem" aria-label="Ordenar por">
+      <option value="posicao">Ordenar por posição</option>
+      <option value="nome">Ordenar por nome</option>
+      <option value="idh">Ordenar por índice</option>
+      <option value="renda">Ordenar por renda</option>
+      <option value="educacao">Ordenar por educação</option>
+      <option value="longevidade">Ordenar por longevidade</option>
+    </select>
+    <button id="btn-csv" class="botao" style="border:1px solid var(--borda);background:#fff;padding:8px 11px;border-radius:6px;cursor:pointer;font-weight:600;color:var(--azul);">Baixar CSV</button>
+  </div>
+  <div class="tabela-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Unidade da Federação</th><th>Índice</th>
+          <th>Renda</th><th>Educação</th><th>Longevidade</th>
+          <th data-col-extra>Renda per capita</th><th data-col-extra>Anos de estudo</th>
+          <th data-col-extra>Esperança de vida</th>
+        </tr>
+      </thead>
+      <tbody id="corpo-tabela">
+        <tr><td class="pos">1º</td><td><span class="chip" style="background:#2b8cbe"></span>Distrito Federal <span class="sigla">DF</span></td><td class="num destaque">0,852</td><td class="num">0,801</td><td class="num">0,839</td><td class="num">0,921</td><td class="num" data-col-extra>R$ 4.286</td><td class="num" data-col-extra">12,2</td><td class="num" data-col-extra">79,9</td></tr>
+<tr><td class="pos">2º</td><td><span class="chip" style="background:#7bccc4"></span>Santa Catarina <span class="sigla">SC</span></td><td class="num destaque">0,799</td><td class="num">0,737</td><td class="num">0,771</td><td class="num">0,899</td><td class="num" data-col-extra>R$ 2.807</td><td class="num" data-col-extra">10,8</td><td class="num" data-col-extra">78,4</td></tr>
+<tr><td class="pos">3º</td><td><span class="chip" style="background:#7bccc4"></span>São Paulo <span class="sigla">SP</span></td><td class="num destaque">0,798</td><td class="num">0,743</td><td class="num">0,776</td><td class="num">0,880</td><td class="num" data-col-extra>R$ 2.917</td><td class="num" data-col-extra">11,2</td><td class="num" data-col-extra">77,2</td></tr>
+<tr><td class="pos">4º</td><td><span class="chip" style="background:#7bccc4"></span>Rio de Janeiro <span class="sigla">RJ</span></td><td class="num destaque">0,795</td><td class="num">0,732</td><td class="num">0,800</td><td class="num">0,859</td><td class="num" data-col-extra>R$ 2.711</td><td class="num" data-col-extra">11,4</td><td class="num" data-col-extra">75,9</td></tr>
+<tr><td class="pos">5º</td><td><span class="chip" style="background:#7bccc4"></span>Rio Grande do Sul <span class="sigla">RS</span></td><td class="num destaque">0,792</td><td class="num">0,736</td><td class="num">0,766</td><td class="num">0,882</td><td class="num" data-col-extra>R$ 2.782</td><td class="num" data-col-extra">10,6</td><td class="num" data-col-extra">77,4</td></tr>
+<tr><td class="pos">6º</td><td><span class="chip" style="background:#7bccc4"></span>Paraná <span class="sigla">PR</span></td><td class="num destaque">0,785</td><td class="num">0,732</td><td class="num">0,752</td><td class="num">0,878</td><td class="num" data-col-extra>R$ 2.710</td><td class="num" data-col-extra">10,3</td><td class="num" data-col-extra">77,1</td></tr>
+<tr><td class="pos">7º</td><td><span class="chip" style="background:#a8ddb5"></span>Goiás <span class="sigla">GO</span></td><td class="num destaque">0,778</td><td class="num">0,712</td><td class="num">0,755</td><td class="num">0,877</td><td class="num" data-col-extra>R$ 2.378</td><td class="num" data-col-extra">10,5</td><td class="num" data-col-extra">77,0</td></tr>
+<tr><td class="pos">8º</td><td><span class="chip" style="background:#a8ddb5"></span>Espírito Santo <span class="sigla">ES</span></td><td class="num destaque">0,775</td><td class="num">0,703</td><td class="num">0,751</td><td class="num">0,883</td><td class="num" data-col-extra>R$ 2.229</td><td class="num" data-col-extra">10,2</td><td class="num" data-col-extra">77,4</td></tr>
+<tr><td class="pos">9º</td><td><span class="chip" style="background:#a8ddb5"></span>Minas Gerais <span class="sigla">MG</span></td><td class="num destaque">0,772</td><td class="num">0,705</td><td class="num">0,737</td><td class="num">0,888</td><td class="num" data-col-extra>R$ 2.259</td><td class="num" data-col-extra">10,0</td><td class="num" data-col-extra">77,7</td></tr>
+<tr><td class="pos">10º</td><td><span class="chip" style="background:#a8ddb5"></span>Mato Grosso do Sul <span class="sigla">MS</span></td><td class="num destaque">0,771</td><td class="num">0,708</td><td class="num">0,757</td><td class="num">0,856</td><td class="num" data-col-extra>R$ 2.304</td><td class="num" data-col-extra">10,3</td><td class="num" data-col-extra">75,6</td></tr>
+<tr><td class="pos">11º</td><td><span class="chip" style="background:#a8ddb5"></span>Mato Grosso <span class="sigla">MT</span></td><td class="num destaque">0,769</td><td class="num">0,713</td><td class="num">0,742</td><td class="num">0,861</td><td class="num" data-col-extra>R$ 2.381</td><td class="num" data-col-extra">10,4</td><td class="num" data-col-extra">75,9</td></tr>
+<tr><td class="pos">12º</td><td><span class="chip" style="background:#a8ddb5"></span>Tocantins <span class="sigla">TO</span></td><td class="num destaque">0,769</td><td class="num">0,691</td><td class="num">0,752</td><td class="num">0,875</td><td class="num" data-col-extra>R$ 2.061</td><td class="num" data-col-extra">10,0</td><td class="num" data-col-extra">76,9</td></tr>
+<tr><td class="pos">13º</td><td><span class="chip" style="background:#ccebc5"></span>Rio Grande do Norte <span class="sigla">RN</span></td><td class="num destaque">0,758</td><td class="num">0,665</td><td class="num">0,733</td><td class="num">0,892</td><td class="num" data-col-extra>R$ 1.737</td><td class="num" data-col-extra">9,4</td><td class="num" data-col-extra">78,0</td></tr>
+<tr><td class="pos">14º</td><td><span class="chip" style="background:#ccebc5"></span>Roraima <span class="sigla">RR</span></td><td class="num destaque">0,755</td><td class="num">0,671</td><td class="num">0,763</td><td class="num">0,840</td><td class="num" data-col-extra>R$ 1.808</td><td class="num" data-col-extra">11,0</td><td class="num" data-col-extra">74,6</td></tr>
+<tr><td class="pos">15º</td><td><span class="chip" style="background:#ccebc5"></span>Rondônia <span class="sigla">RO</span></td><td class="num destaque">0,750</td><td class="num">0,688</td><td class="num">0,710</td><td class="num">0,865</td><td class="num" data-col-extra>R$ 2.020</td><td class="num" data-col-extra">9,2</td><td class="num" data-col-extra">76,2</td></tr>
+<tr><td class="pos">16º</td><td><span class="chip" style="background:#ccebc5"></span>Amapá <span class="sigla">AP</span></td><td class="num destaque">0,749</td><td class="num">0,668</td><td class="num">0,749</td><td class="num">0,840</td><td class="num" data-col-extra>R$ 1.769</td><td class="num" data-col-extra">10,7</td><td class="num" data-col-extra">74,6</td></tr>
+<tr><td class="pos">17º</td><td><span class="chip" style="background:#ccebc5"></span>Sergipe <span class="sigla">SE</span></td><td class="num destaque">0,745</td><td class="num">0,660</td><td class="num">0,719</td><td class="num">0,870</td><td class="num" data-col-extra>R$ 1.678</td><td class="num" data-col-extra">9,0</td><td class="num" data-col-extra">76,6</td></tr>
+<tr><td class="pos">18º</td><td><span class="chip" style="background:#ccebc5"></span>Amazonas <span class="sigla">AM</span></td><td class="num destaque">0,742</td><td class="num">0,635</td><td class="num">0,752</td><td class="num">0,857</td><td class="num" data-col-extra>R$ 1.425</td><td class="num" data-col-extra">10,4</td><td class="num" data-col-extra">75,7</td></tr>
+<tr><td class="pos">19º</td><td><span class="chip" style="background:#ccebc5"></span>Piauí <span class="sigla">PI</span></td><td class="num destaque">0,741</td><td class="num">0,645</td><td class="num">0,718</td><td class="num">0,879</td><td class="num" data-col-extra>R$ 1.520</td><td class="num" data-col-extra">8,7</td><td class="num" data-col-extra">77,2</td></tr>
+<tr><td class="pos">20º</td><td><span class="chip" style="background:#ccebc5"></span>Pará <span class="sigla">PA</span></td><td class="num destaque">0,739</td><td class="num">0,640</td><td class="num">0,727</td><td class="num">0,869</td><td class="num" data-col-extra>R$ 1.472</td><td class="num" data-col-extra">9,4</td><td class="num" data-col-extra">76,5</td></tr>
+<tr><td class="pos">21º</td><td><span class="chip" style="background:#e0f3db"></span>Paraíba <span class="sigla">PB</span></td><td class="num destaque">0,736</td><td class="num">0,649</td><td class="num">0,699</td><td class="num">0,877</td><td class="num" data-col-extra>R$ 1.567</td><td class="num" data-col-extra">8,6</td><td class="num" data-col-extra">77,0</td></tr>
+<tr><td class="pos">22º</td><td><span class="chip" style="background:#e0f3db"></span>Pernambuco <span class="sigla">PE</span></td><td class="num destaque">0,735</td><td class="num">0,647</td><td class="num">0,715</td><td class="num">0,858</td><td class="num" data-col-extra>R$ 1.548</td><td class="num" data-col-extra">9,3</td><td class="num" data-col-extra">75,8</td></tr>
+<tr><td class="pos">23º</td><td><span class="chip" style="background:#e0f3db"></span>Ceará <span class="sigla">CE</span></td><td class="num destaque">0,733</td><td class="num">0,635</td><td class="num">0,701</td><td class="num">0,884</td><td class="num" data-col-extra>R$ 1.423</td><td class="num" data-col-extra">8,9</td><td class="num" data-col-extra">77,5</td></tr>
+<tr><td class="pos">24º</td><td><span class="chip" style="background:#e0f3db"></span>Bahia <span class="sigla">BA</span></td><td class="num destaque">0,732</td><td class="num">0,643</td><td class="num">0,709</td><td class="num">0,862</td><td class="num" data-col-extra>R$ 1.498</td><td class="num" data-col-extra">8,9</td><td class="num" data-col-extra">76,0</td></tr>
+<tr><td class="pos">25º</td><td><span class="chip" style="background:#e0f3db"></span>Acre <span class="sigla">AC</span></td><td class="num destaque">0,731</td><td class="num">0,635</td><td class="num">0,714</td><td class="num">0,863</td><td class="num" data-col-extra>R$ 1.427</td><td class="num" data-col-extra">9,3</td><td class="num" data-col-extra">76,1</td></tr>
+<tr><td class="pos">26º</td><td><span class="chip" style="background:#e0f3db"></span>Alagoas <span class="sigla">AL</span></td><td class="num destaque">0,718</td><td class="num">0,636</td><td class="num">0,691</td><td class="num">0,841</td><td class="num" data-col-extra>R$ 1.435</td><td class="num" data-col-extra">8,6</td><td class="num" data-col-extra">74,7</td></tr>
+<tr><td class="pos">27º</td><td><span class="chip" style="background:#e0f3db"></span>Maranhão <span class="sigla">MA</span></td><td class="num destaque">0,716</td><td class="num">0,610</td><td class="num">0,699</td><td class="num">0,859</td><td class="num" data-col-extra>R$ 1.206</td><td class="num" data-col-extra">8,8</td><td class="num" data-col-extra">75,8</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota-mapa">Valores de índice e dimensões variam de 0 a 1. Renda per capita em reais
+  correntes de 2025. Camada ativa: <strong data-tag-camada>IDH estimado 2025</strong>.</p>
+</section>
+
+<section class="card">
+  <h2>Como ler a tabela</h2>
+  <div class="two-col">
+    <div>
+      <h3>Camada estimada (2025)</h3>
+      <p>Índice calculado neste repositório com renda domiciliar per capita, anos de estudo,
+      escolarização e esperança de vida projetada. Serve para comparar UFs no mesmo ano.</p>
+    </div>
+    <div>
+      <h3>Camada oficial (2024)</h3>
+      <p>IDHM e dimensões publicados pelo Atlas do Desenvolvimento Humano e reproduzidos pela
+      API do IpeaData. É o valor oficial mais recente disponível por UF.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="rodape">
+  Elaboração própria. IDH estimado 2025 (IBGE) e IDHM oficial 2024 (Atlas/IpeaData) são
+  indicadores distintos — compare apenas dentro da mesma camada.
+</footer>
+<div class="tooltip" id="tooltip"></div>
+<script src="assets/dados.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

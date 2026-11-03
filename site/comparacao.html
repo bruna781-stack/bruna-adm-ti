@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estimado × oficial</title>
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <div class="kicker">Desenvolvimento humano · Análise territorial</div>
+    <h1>Estimado × oficial</h1>
+    <p>Onde a estimativa de 2025 acompanha — e onde se afasta — do IDHM oficial de 2024.</p>
+  </div>
+</header>
+<nav class="menu"><div class="wrap"><a href="index.html">Visão geral</a><a href="estados.html">Estados</a><a href="comparacao.html" aria-current="page">Comparação</a><a href="metodologia.html">Metodologia</a><a href="dados.html">Dados</a></div></nav>
+<main>
+
+<div class="kpis">
+  <div class="kpi"><div class="rot">Correlação de Pearson</div><div class="val">0,966</div>
+    <div class="quem">entre as duas camadas (n = 27)</div></div>
+  <div class="kpi"><div class="rot">Correlação de Spearman</div><div class="val">0,948</div>
+    <div class="quem">ordenação das UFs</div></div>
+  <div class="kpi"><div class="rot">Diferença média absoluta</div><div class="val">0,028</div>
+    <div class="quem">estimado menos oficial</div></div>
+  <div class="kpi"><div class="rot">Maior divergência</div><div class="val">0,043</div>
+    <div class="quem">MT</div></div>
+</div>
+
+<section class="card">
+  <h2>Dispersão: IDHM oficial × IDH estimado</h2>
+  <p class="sub">Cada ponto é uma UF. A linha tracejada é a identidade (y = x). Pontos abaixo dela
+  indicam estimativa menor que o valor oficial.</p>
+  <div class="scatter-wrap"><svg id="dispersao" viewBox="0 0 760 430" role="img" aria-label="Dispersão entre IDHM oficial e IDH estimado"><line class="eixo" x1="63.7" y1="376.0" x2="63.7" y2="22.0"/><line class="eixo" x1="62.0" y1="375.1" x2="738.0" y2="375.1"/><text class="eixo-texto" x="63.7" y="392.0" text-anchor="middle">0.71</text><text class="eixo-texto" x="54.0" y="379.1" text-anchor="end">0.71</text><line class="eixo" x1="146.9" y1="376.0" x2="146.9" y2="22.0"/><line class="eixo" x1="62.0" y1="331.5" x2="738.0" y2="331.5"/><text class="eixo-texto" x="146.9" y="392.0" text-anchor="middle">0.73</text><text class="eixo-texto" x="54.0" y="335.5" text-anchor="end">0.73</text><line class="eixo" x1="230.2" y1="376.0" x2="230.2" y2="22.0"/><line class="eixo" x1="62.0" y1="287.9" x2="738.0" y2="287.9"/><text class="eixo-texto" x="230.2" y="392.0" text-anchor="middle">0.75</text><text class="eixo-texto" x="54.0" y="291.9" text-anchor="end">0.75</text><line class="eixo" x1="313.4" y1="376.0" x2="313.4" y2="22.0"/><line class="eixo" x1="62.0" y1="244.3" x2="738.0" y2="244.3"/><text class="eixo-texto" x="313.4" y="392.0" text-anchor="middle">0.77</text><text class="eixo-texto" x="54.0" y="248.3" text-anchor="end">0.77</text><line class="eixo" x1="396.7" y1="376.0" x2="396.7" y2="22.0"/><line class="eixo" x1="62.0" y1="200.7" x2="738.0" y2="200.7"/><text class="eixo-texto" x="396.7" y="392.0" text-anchor="middle">0.79</text><text class="eixo-texto" x="54.0" y="204.7" text-anchor="end">0.79</text><line class="eixo" x1="479.9" y1="376.0" x2="479.9" y2="22.0"/><line class="eixo" x1="62.0" y1="157.1" x2="738.0" y2="157.1"/><text class="eixo-texto" x="479.9" y="392.0" text-anchor="middle">0.81</text><text class="eixo-texto" x="54.0" y="161.1" text-anchor="end">0.81</text><line class="eixo" x1="563.2" y1="376.0" x2="563.2" y2="22.0"/><line class="eixo" x1="62.0" y1="113.6" x2="738.0" y2="113.6"/><text class="eixo-texto" x="563.2" y="392.0" text-anchor="middle">0.83</text><text class="eixo-texto" x="54.0" y="117.6" text-anchor="end">0.83</text><line class="eixo" x1="646.4" y1="376.0" x2="646.4" y2="22.0"/><line class="eixo" x1="62.0" y1="70.0" x2="738.0" y2="70.0"/><text class="eixo-texto" x="646.4" y="392.0" text-anchor="middle">0.85</text><text class="eixo-texto" x="54.0" y="74.0" text-anchor="end">0.85</text><line class="eixo" x1="729.7" y1="376.0" x2="729.7" y2="22.0"/><line class="eixo" x1="62.0" y1="26.4" x2="738.0" y2="26.4"/><text class="eixo-texto" x="729.7" y="392.0" text-anchor="middle">0.87</text><text class="eixo-texto" x="54.0" y="30.4" text-anchor="end">0.87</text><line class="identidade" x1="62.0" y1="376.0" x2="738.0" y2="22.0"/><circle class="ponto" cx="380.0" cy="287.1" r="4.6"><title>RO: oficial 0,786 · estimado 0,750</title></circle><circle class="ponto" cx="246.8" cy="328.7" r="4.6"><title>AC: oficial 0,754 · estimado 0,731</title></circle><circle class="ponto" cx="300.9" cy="304.5" r="4.6"><title>AM: oficial 0,767 · estimado 0,742</title></circle><circle class="ponto" cx="355.0" cy="277.7" r="4.6"><title>RR: oficial 0,780 · estimado 0,755</title></circle><circle class="ponto" cx="263.5" cy="311.0" r="4.6"><title>PA: oficial 0,758 · estimado 0,739</title></circle><circle class="ponto" cx="267.6" cy="290.3" r="4.6"><title>AP: oficial 0,759 · estimado 0,749</title></circle><circle class="ponto" cx="425.8" cy="246.7" r="4.6"><title>TO: oficial 0,797 · estimado 0,769</title></circle><circle class="ponto extremo" cx="209.4" cy="362.9" r="4.6"><title>MA: oficial 0,745 · estimado 0,716</title></circle><text class="ponto-label" x="216.4" y="356.9">MA</text><circle class="ponto" cx="288.4" cy="307.3" r="4.6"><title>PI: oficial 0,764 · estimado 0,741</title></circle><circle class="ponto" cx="325.9" cy="325.4" r="4.6"><title>CE: oficial 0,773 · estimado 0,733</title></circle><circle class="ponto" cx="346.7" cy="271.4" r="4.6"><title>RN: oficial 0,778 · estimado 0,758</title></circle><circle class="ponto" cx="271.8" cy="318.9" r="4.6"><title>PB: oficial 0,760 · estimado 0,736</title></circle><circle class="ponto" cx="300.9" cy="320.4" r="4.6"><title>PE: oficial 0,767 · estimado 0,735</title></circle><circle class="ponto" cx="213.5" cy="358.1" r="4.6"><title>AL: oficial 0,746 · estimado 0,718</title></circle><circle class="ponto" cx="276.0" cy="299.9" r="4.6"><title>SE: oficial 0,761 · estimado 0,745</title></circle><circle class="ponto" cx="267.6" cy="326.5" r="4.6"><title>BA: oficial 0,759 · estimado 0,732</title></circle><circle class="ponto" cx="475.8" cy="239.3" r="4.6"><title>MG: oficial 0,809 · estimado 0,772</title></circle><circle class="ponto" cx="454.9" cy="233.2" r="4.6"><title>ES: oficial 0,804 · estimado 0,775</title></circle><circle class="ponto" cx="517.4" cy="188.8" r="4.6"><title>RJ: oficial 0,819 · estimado 0,795</title></circle><circle class="ponto extremo" cx="596.5" cy="184.2" r="4.6"><title>SP: oficial 0,838 · estimado 0,798</title></circle><text class="ponto-label" x="603.5" y="178.2">SP</text><circle class="ponto" cx="529.9" cy="212.1" r="4.6"><title>PR: oficial 0,822 · estimado 0,785</title></circle><circle class="ponto extremo" cx="575.7" cy="180.3" r="4.6"><title>SC: oficial 0,833 · estimado 0,799</title></circle><text class="ponto-label" x="582.7" y="174.3">SC</text><circle class="ponto" cx="513.2" cy="195.3" r="4.6"><title>RS: oficial 0,818 · estimado 0,792</title></circle><circle class="ponto" cx="425.8" cy="242.4" r="4.6"><title>MS: oficial 0,797 · estimado 0,771</title></circle><circle class="ponto" cx="488.2" cy="246.1" r="4.6"><title>MT: oficial 0,812 · estimado 0,769</title></circle><circle class="ponto" cx="500.7" cy="225.8" r="4.6"><title>GO: oficial 0,815 · estimado 0,778</title></circle><circle class="ponto extremo" cx="713.0" cy="64.7" r="4.6"><title>DF: oficial 0,866 · estimado 0,852</title></circle><text class="ponto-label" x="720.0" y="58.7">DF</text><text class="eixo-texto" x="400.0" y="416.0" text-anchor="middle">IDHM oficial 2024 (Atlas/IpeaData)</text><text class="eixo-texto" transform="rotate(-90 14 199.0)" x="14" y="199.0" text-anchor="middle">IDH estimado 2025 (IBGE)</text></svg></div>
+</section>
+
+<section class="card">
+  <h2>Maiores divergências</h2>
+  <p class="sub">Ordenadas pela diferença absoluta. Posição 1º = maior índice.</p>
+  <div class="tabela-wrap">
+    <table>
+      <thead>
+        <tr><th>UF</th><th>IDHM 2024</th><th>IDH est. 2025</th><th>Diferença</th>
+        <th>Pos. oficial</th><th>Pos. estimada</th><th>Δ posição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mato Grosso <span class="sigla">MT</span></td><td class="num">0,812</td><td class="num">0,769</td><td class="num">−0,043</td><td class="num">8º</td><td class="num">11º</td><td class="num">-3</td></tr><tr><td>São Paulo <span class="sigla">SP</span></td><td class="num">0,838</td><td class="num">0,798</td><td class="num">−0,040</td><td class="num">2º</td><td class="num">3º</td><td class="num">-1</td></tr><tr><td>Ceará <span class="sigla">CE</span></td><td class="num">0,773</td><td class="num">0,733</td><td class="num">−0,040</td><td class="num">16º</td><td class="num">23º</td><td class="num">-7</td></tr><tr><td>Paraná <span class="sigla">PR</span></td><td class="num">0,822</td><td class="num">0,785</td><td class="num">−0,037</td><td class="num">4º</td><td class="num">6º</td><td class="num">-2</td></tr><tr><td>Minas Gerais <span class="sigla">MG</span></td><td class="num">0,809</td><td class="num">0,772</td><td class="num">−0,037</td><td class="num">9º</td><td class="num">9º</td><td class="num">=</td></tr><tr><td>Goiás <span class="sigla">GO</span></td><td class="num">0,815</td><td class="num">0,778</td><td class="num">−0,036</td><td class="num">7º</td><td class="num">7º</td><td class="num">=</td></tr><tr><td>Rondônia <span class="sigla">RO</span></td><td class="num">0,786</td><td class="num">0,750</td><td class="num">−0,036</td><td class="num">13º</td><td class="num">15º</td><td class="num">-2</td></tr><tr><td>Santa Catarina <span class="sigla">SC</span></td><td class="num">0,833</td><td class="num">0,799</td><td class="num">−0,034</td><td class="num">3º</td><td class="num">2º</td><td class="num">+1</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Por que os níveis são diferentes</h2>
+  <p>As duas camadas medem desenvolvimento humano, mas não são a mesma coisa:</p>
+  <ul>
+    <li><strong>Renda:</strong> o IDHM usa a renda municipal per capita em reais de 2010; o IDH
+    estimado usa renda domiciliar per capita de 2025 convertida por paridade de poder de compra.
+    Conceitos e anos diferentes explicam a maior parte do nível mais baixo da estimativa.</li>
+    <li><strong>Educação:</strong> o IDHM usa anos de estudo e anos esperados de estudo; aqui os
+    anos esperados são aproximados pela taxa de escolarização por grupo de idade.</li>
+    <li><strong>Longevidade:</strong> o IDHM usa a esperança de vida do período do Atlas; aqui é a
+    projeção do IBGE para 2025.</li>
+    <li><strong>Ano:</strong> 2024 no oficial e 2025 na estimativa. Não é uma série temporal.</li>
+  </ul>
+  <p>A correlação alta mostra que a estimativa preserva a <strong>ordenação relativa</strong> dos
+  estados. O nível absoluto, porém, não deve ser comparado entre camadas.</p>
+</section>
+
+</main>
+<footer class="rodape">
+  Elaboração própria. IDH estimado 2025 (IBGE) e IDHM oficial 2024 (Atlas/IpeaData) são
+  indicadores distintos — compare apenas dentro da mesma camada.
+</footer>
+<div class="tooltip" id="tooltip"></div>
+<script src="assets/dados.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
